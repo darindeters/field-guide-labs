@@ -1,0 +1,348 @@
+{
+ "measured": "2026-10-16",
+ "budget_bytes": 32768,
+ "method": "GitHub git tree of the default branch. For each folder that has an instruction file, walk from the repo root down, take the first instruction file that exists per folder (AGENTS.override.md, then AGENTS.md), skip zero-byte files, and spend one shared budget root first. File sizes are bytes from the tree. Whitespace-only files are not detected.",
+ "repos": {
+  "apache/airflow": {
+   "default_branch": "main",
+   "tree_sha": "d5ba49cbd6a2808f85eaecc172cddf14adc82742",
+   "tree_truncated": false,
+   "instruction_folders": 14,
+   "folders_over_budget": 2,
+   "has_codex_config_in_repo": false,
+   "over_budget": [
+    {
+     "folder": "registry",
+     "total_bytes": 45199,
+     "over_bytes": 12431,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 22734,
+       "status": "ok"
+      },
+      {
+       "file": "registry/AGENTS.md",
+       "bytes": 22465,
+       "status": "cut: first 10034 load, last 12431 never do"
+      }
+     ]
+    },
+    {
+     "folder": "providers/common/ai",
+     "total_bytes": 33057,
+     "over_bytes": 289,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 22734,
+       "status": "ok"
+      },
+      {
+       "file": "providers/AGENTS.md",
+       "bytes": 6206,
+       "status": "ok"
+      },
+      {
+       "file": "providers/common/ai/AGENTS.md",
+       "bytes": 4117,
+       "status": "cut: first 3828 load, last 289 never do"
+      }
+     ]
+    }
+   ]
+  },
+  "grafana/grafana": {
+   "default_branch": "main",
+   "tree_sha": "978f3d933fe5a0c421c85f71a1d03b5724a6fe3d",
+   "tree_truncated": false,
+   "instruction_folders": 13,
+   "folders_over_budget": 2,
+   "has_codex_config_in_repo": false,
+   "over_budget": [
+    {
+     "folder": "e2e-playwright/dashboard-new-layouts",
+     "total_bytes": 69049,
+     "over_bytes": 36281,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 10573,
+       "status": "ok"
+      },
+      {
+       "file": "e2e-playwright/dashboard-new-layouts/AGENTS.md",
+       "bytes": 58476,
+       "status": "cut: first 22195 load, last 36281 never do"
+      }
+     ]
+    },
+    {
+     "folder": "pkg/router",
+     "total_bytes": 40827,
+     "over_bytes": 8059,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 10573,
+       "status": "ok"
+      },
+      {
+       "file": "pkg/router/AGENTS.md",
+       "bytes": 30254,
+       "status": "cut: first 22195 load, last 8059 never do"
+      }
+     ]
+    }
+   ]
+  },
+  "n8n-io/n8n": {
+   "default_branch": "master",
+   "tree_sha": "c28d130c6ce4f668a91b44c19bd39785a4b83da8",
+   "tree_truncated": false,
+   "instruction_folders": 23,
+   "folders_over_budget": 1,
+   "has_codex_config_in_repo": false,
+   "over_budget": [
+    {
+     "folder": "scripts/instance-seeding",
+     "total_bytes": 37824,
+     "over_bytes": 5056,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 22767,
+       "status": "ok"
+      },
+      {
+       "file": "scripts/instance-seeding/AGENTS.md",
+       "bytes": 15057,
+       "status": "cut: first 10001 load, last 5056 never do"
+      }
+     ]
+    }
+   ]
+  },
+  "pydantic/pydantic-ai": {
+   "default_branch": "main",
+   "tree_sha": "2c23dd01b804dd238e52f70754cdbdb7b8ace70d",
+   "tree_truncated": false,
+   "instruction_folders": 21,
+   "folders_over_budget": 5,
+   "has_codex_config_in_repo": false,
+   "over_budget": [
+    {
+     "folder": "src/pydantic_clai2",
+     "total_bytes": 69180,
+     "over_bytes": 36412,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 17349,
+       "status": "ok"
+      },
+      {
+       "file": "src/pydantic_clai2/AGENTS.md",
+       "bytes": 51831,
+       "status": "cut: first 15419 load, last 36412 never do"
+      }
+     ]
+    },
+    {
+     "folder": "tests/harness",
+     "total_bytes": 46689,
+     "over_bytes": 13921,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 17349,
+       "status": "ok"
+      },
+      {
+       "file": "tests/AGENTS.md",
+       "bytes": 27961,
+       "status": "cut: first 15419 load, last 12542 never do"
+      },
+      {
+       "file": "tests/harness/AGENTS.md",
+       "bytes": 1379,
+       "status": "skipped"
+      }
+     ]
+    },
+    {
+     "folder": "tests/benchmarks",
+     "total_bytes": 45506,
+     "over_bytes": 12738,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 17349,
+       "status": "ok"
+      },
+      {
+       "file": "tests/AGENTS.md",
+       "bytes": 27961,
+       "status": "cut: first 15419 load, last 12542 never do"
+      },
+      {
+       "file": "tests/benchmarks/AGENTS.md",
+       "bytes": 196,
+       "status": "skipped"
+      }
+     ]
+    },
+    {
+     "folder": "tests",
+     "total_bytes": 45310,
+     "over_bytes": 12542,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 17349,
+       "status": "ok"
+      },
+      {
+       "file": "tests/AGENTS.md",
+       "bytes": 27961,
+       "status": "cut: first 15419 load, last 12542 never do"
+      }
+     ]
+    },
+    {
+     "folder": ".github/workflows",
+     "total_bytes": 41358,
+     "over_bytes": 8590,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 17349,
+       "status": "ok"
+      },
+      {
+       "file": ".github/workflows/AGENTS.md",
+       "bytes": 24009,
+       "status": "cut: first 15419 load, last 8590 never do"
+      }
+     ]
+    }
+   ]
+  },
+  "vercel/next.js": {
+   "default_branch": "canary",
+   "tree_sha": "a6d4c15991fd2f69c14eea4e8b655b596bc162bf",
+   "tree_truncated": false,
+   "instruction_folders": 9,
+   "folders_over_budget": 1,
+   "has_codex_config_in_repo": false,
+   "over_budget": [
+    {
+     "folder": ".github",
+     "total_bytes": 33624,
+     "over_bytes": 856,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 30699,
+       "status": "ok"
+      },
+      {
+       "file": ".github/AGENTS.md",
+       "bytes": 2925,
+       "status": "cut: first 2069 load, last 856 never do"
+      }
+     ]
+    }
+   ]
+  },
+  "langchain-ai/langchain": {
+   "default_branch": "master",
+   "tree_sha": "c088db971097f0f12c7b8c30d473e8dbde09c823",
+   "tree_truncated": false,
+   "instruction_folders": 1,
+   "folders_over_budget": 0,
+   "has_codex_config_in_repo": false,
+   "over_budget": []
+  },
+  "openai/openai-agents-python": {
+   "default_branch": "main",
+   "tree_sha": "17d994bd3045dae71acda676a4ef4762ed8ecd94",
+   "tree_truncated": false,
+   "instruction_folders": 1,
+   "folders_over_budget": 1,
+   "has_codex_config_in_repo": false,
+   "over_budget": [
+    {
+     "folder": ".",
+     "total_bytes": 38241,
+     "over_bytes": 5473,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 38241,
+       "status": "cut: first 32768 load, last 5473 never do"
+      }
+     ]
+    }
+   ]
+  },
+  "openai/openai-agents-js": {
+   "default_branch": "main",
+   "tree_sha": "9687b544c8c873080e6ff7e7d294c0b353cd9ab6",
+   "tree_truncated": false,
+   "instruction_folders": 1,
+   "folders_over_budget": 1,
+   "has_codex_config_in_repo": false,
+   "over_budget": [
+    {
+     "folder": ".",
+     "total_bytes": 39478,
+     "over_bytes": 6710,
+     "files": [
+      {
+       "file": "AGENTS.md",
+       "bytes": 39478,
+       "status": "cut: first 32768 load, last 6710 never do"
+      }
+     ]
+    }
+   ]
+  },
+  "elastic/kibana": {
+   "default_branch": "main",
+   "tree_sha": "26f215acbdb44c3234779b61221b85518292cf12",
+   "tree_truncated": true,
+   "instruction_folders": 5,
+   "folders_over_budget": 0,
+   "has_codex_config_in_repo": false,
+   "over_budget": []
+  },
+  "supabase/supabase": {
+   "default_branch": "master",
+   "tree_sha": "09a4374b14618659fea35395608bb70a414275b7",
+   "tree_truncated": false,
+   "instruction_folders": 4,
+   "folders_over_budget": 0,
+   "has_codex_config_in_repo": false,
+   "over_budget": []
+  },
+  "vercel/ai": {
+   "default_branch": "main",
+   "tree_sha": "8a5233b15b1e69573d63faee6cd0014559252ee4",
+   "tree_truncated": false,
+   "instruction_folders": 3,
+   "folders_over_budget": 0,
+   "has_codex_config_in_repo": false,
+   "over_budget": []
+  },
+  "cloudflare/workers-sdk": {
+   "default_branch": "main",
+   "tree_sha": "62170b51f929f422a6eee038b0c5be5fa5e2a59d",
+   "tree_truncated": false,
+   "instruction_folders": 8,
+   "folders_over_budget": 0,
+   "has_codex_config_in_repo": false,
+   "over_budget": []
+  }
+ }
+}

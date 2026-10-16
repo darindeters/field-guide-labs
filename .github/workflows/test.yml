@@ -1,0 +1,19 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  agents-budget:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test
+        run: bash codex/agents-budget/test.sh
+      - name: ShellCheck
+        if: runner.os == 'Linux'
+        run: shellcheck --severity=warning codex/agents-budget/*.sh

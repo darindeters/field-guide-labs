@@ -1,0 +1,20 @@
+# Fails a pull request when any AGENTS.md chain would be cut off by Codex.
+# Copy to .github/workflows/agents-budget.yml and commit agents-budget.sh
+# to scripts/ in your repo.
+name: agents-budget
+
+on:
+  pull_request:
+    paths:
+      - "**/AGENTS.md"
+      - "**/AGENTS.override.md"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Every AGENTS.md chain fits the Codex budget
+        run: bash scripts/agents-budget.sh --all
+        # env:
+        #   CODEX_BUDGET: "65536"   # if your team raised project_doc_max_bytes
