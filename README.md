@@ -8,7 +8,10 @@ Every lab here backs a claim from a video with something you can run yourself. S
 
 | Lab | Video | What it does |
 |---|---|---|
-| [codex/agents-budget](codex/agents-budget) | Codex Field Guide #1: Why Codex Ignores Half Your AGENTS.md (in production) | Shows how much of your AGENTS.md chain Codex actually loads, and where the cut lands. Works as a CI gate. |
+| [codex/agents-budget](codex/agents-budget) | Codex Field Guide #1: Why Codex Ignores Half Your AGENTS.md (publishing Oct 18) | Shows how much of your AGENTS.md chain Codex actually loads, and where the cut lands. Works as a CI gate. [Sources](codex/agents-budget/SOURCES.md) |
+| [codex/agents-budget/FAIL-FILE-01.md](codex/agents-budget/FAIL-FILE-01.md) | Fail File #1: Codex was reading half the rules (publishing Oct 18) | The live run from the video, step by step, with the expected output, so you can reproduce it. |
+
+Playlist: [OpenAI Codex Field Guide](https://www.youtube.com/playlist?list=PLFugvr56CiX8)
 
 ## How these labs are built
 

@@ -40,6 +40,8 @@ CODEX_FALLBACKS="TEAM_GUIDE.md .agents.md" ./agents-budget.sh --all
 
 Exit code `1` means some instructions never load, so `--all` works as a CI gate. See [examples/github-actions.yml](examples/github-actions.yml).
 
+**Every claim in the videos, with its source:** [SOURCES.md](SOURCES.md). **Reproduce the live run:** [FAIL-FILE-01.md](FAIL-FILE-01.md).
+
 ## What it checks, and why
 
 Every rule below comes from the Codex source, `codex-rs/core/src/agents_md.rs` in [openai/codex](https://github.com/openai/codex), checked on 2026-10-16 (last change to that file: 2026-09-16). Where the docs say something different, the source wins.
