@@ -59,7 +59,7 @@ Every rule below comes from the Codex source, `codex-rs/core/src/agents_md.rs` i
 
 ## Data from the video
 
-[data/public-repos-2026-10-16.json](data/public-repos-2026-10-16.json) has the chain measurements for the 12 public repos measured for Codex Field Guide #1, taken from each repo's default branch on 2026-10-16 with the default 32 KiB budget. Those repos may write `AGENTS.md` for several coding agents, and their maintainers may raise the limit in their own config. The numbers describe Codex's default behavior, not a mistake by the projects. GitHub truncated the file listing for elastic/kibana, so its result (no folder over budget) is a lower bound.
+[data/public-repos-2026-10-16.json](data/public-repos-2026-10-16.json) has the chain measurements for the 12 public repos measured for Codex Field Guide #1, taken from each repo's default branch on 2026-10-16 with the default 32 KiB budget. Those repos may write `AGENTS.md` for several coding agents, and their maintainers may raise the limit in their own config. The numbers describe Codex's default behavior, not a mistake by the projects. GitHub truncated the file listing for elastic/kibana, so the JSON misses one folder there. A full checkout of every repo with [examples/measure-public-repos.sh](examples/measure-public-repos.sh) ([results](data/full-checkout-2026-10-16.txt)) finds it: a deep Kibana folder 29 bytes over, which makes the count **8 of 12**.
 
 ## Test
 

@@ -1,0 +1,14 @@
+OVER  apache/airflow  ->  4117  providers/common/ai/AGENTS.md                             CUT: first 3828 bytes load, last 289 never do
+OVER  grafana/grafana  ->  58476  e2e-playwright/dashboard-new-layouts/AGENTS.md            CUT: first 22195 bytes load, last 36281 never do
+OVER  n8n-io/n8n  ->  15057  scripts/instance-seeding/AGENTS.md                        CUT: first 10001 bytes load, last 5056 never do
+OVER  pydantic/pydantic-ai  ->  24009  .github/workflows/AGENTS.md                               CUT: first 15419 bytes load, last 8590 never do
+OVER  vercel/next.js  ->  2925  .github/AGENTS.md                                         CUT: first 2069 bytes load, last 856 never do
+ok    langchain-ai/langchain
+OVER  openai/openai-agents-python  ->  38241  AGENTS.md                                                 CUT: first 32768 bytes load, last 5473 never do
+OVER  openai/openai-agents-js  ->  39478  AGENTS.md                                                 CUT: first 32768 bytes load, last 6710 never do
+OVER  elastic/kibana  ->  7511  x-pack/solutions/observability/plugins/observability_agent_builder/server/routes/ai_insights/AGENTS.md  CUT: first 7482 bytes load, last 29 never do
+ok    supabase/supabase
+ok    vercel/ai
+ok    cloudflare/workers-sdk
+
+8 of 12 repos have instructions Codex would cut off on default settings (2026-10-16)
