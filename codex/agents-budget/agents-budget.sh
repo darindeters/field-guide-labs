@@ -64,6 +64,15 @@ chain() {
   rel="${rel#/}"
   [ -n "$rel" ] && IFS='/' read -r -a parts <<< "$rel"
 
+  # Size the path column to the longest path in this chain.
+  local w=10 g
+  d="$root"
+  for part in "" "${parts[@]+"${parts[@]}"}"; do
+    [ -n "$part" ] && d="$d/$part"
+    g="$(pick "$d")"
+    [ -n "$g" ] && [ "${#g}" -gt 0 ] && { g="${g#"$root"/}"; [ "${#g}" -gt "$w" ] && w=${#g}; }
+  done
+
   echo "chain for ./${rel}  (budget ${BUDGET} bytes)"
   d="$root"
   for part in "" "${parts[@]+"${parts[@]}"}"; do
@@ -75,20 +84,20 @@ chain() {
     if ! grep -q '[^[:space:]]' "$f"; then
       hidden="$(shadowed "$d")"
       if [ -n "$hidden" ]; then
-        printf '  %8s  %-56s  EMPTY: skipped, and it hides %s\n' "$size" "${f#"$root"/}" "$hidden"
+        printf '  %8s  %-*s  EMPTY: skipped, and it hides %s\n' "$size" "$w" "${f#"$root"/}" "$hidden"
         over=1
       else
-        printf '  %8s  %-56s  empty: skipped\n' "$size" "${f#"$root"/}"
+        printf '  %8s  %-*s  empty: skipped\n' "$size" "$w" "${f#"$root"/}"
       fi
       continue
     elif [ "$left" -le 0 ]; then
-      printf '  %8s  %-56s  SKIPPED: budget already spent\n' "$size" "${f#"$root"/}"
+      printf '  %8s  %-*s  SKIPPED: budget already spent\n' "$size" "$w" "${f#"$root"/}"
       over=1
     elif [ "$size" -gt "$left" ]; then
-      printf '  %8s  %-56s  CUT: first %s bytes load, last %s never do\n' "$size" "${f#"$root"/}" "$left" $((size - left))
+      printf '  %8s  %-*s  CUT: first %s bytes load, last %s never do\n' "$size" "$w" "${f#"$root"/}" "$left" $((size - left))
       over=1
     else
-      printf '  %8s  %-56s  ok\n' "$size" "${f#"$root"/}"
+      printf '  %8s  %-*s  ok\n' "$size" "$w" "${f#"$root"/}"
     fi
     acc=$((acc + size))
   done
