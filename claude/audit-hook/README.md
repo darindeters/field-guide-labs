@@ -23,14 +23,15 @@ tail -n 3 tool-calls.jsonl
 Recorded output, Oct 17, 2026 (Claude Code 2.1.302):
 
 ```
-The folder contains .gitignore, README.md, log-tool-call.py, settings.json, test.sh, and tool-calls.jsonl, and README.md's first line is "# audit-hook".
+The folder holds .gitignore, README.md, log-tool-call.py, settings.json, test.sh, and tool-calls.jsonl, and README.md's first line is `# audit-hook`.
 ```
 
 ```
-{"ts":"2026-10-17T08:47:23Z","actor":"alice@example.com","session_id":"ed5283dc-5060-446d-a1cf-ac78e4503485","tool_name":"Bash","input":"command=ls -la . && head -n 1 README.md"}
+{"ts":"2026-10-17T08:49:09Z","actor":"alice@example.com","session_id":"1f0656ab-4f31-4286-8d49-f8dbb49768d1","tool_name":"Bash","input":"command=ls -la ."}
+{"ts":"2026-10-17T08:49:09Z","actor":"alice@example.com","session_id":"1f0656ab-4f31-4286-8d49-f8dbb49768d1","tool_name":"Read","input":"file_path=README.md"}
 ```
 
-Claude picks its own tools, so your run may log a `Glob` and a `Read` instead of one `Bash` call. Each one gets a line with the actor.
+Claude picks its own tools, so your run may log a `Glob`, or a single `Bash` call, instead. Each one gets a line with the actor.
 
 ## What the flags do
 
