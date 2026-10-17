@@ -17,3 +17,18 @@ jobs:
       - name: ShellCheck
         if: runner.os == 'Linux'
         run: shellcheck --severity=warning codex/agents-budget/*.sh
+
+  claude-labs:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: review-blind-spots self-test
+        run: bash claude/review-blind-spots/test.sh
+      - name: deny-rule-gap self-test
+        run: bash claude/deny-rule-gap/test.sh
+      - name: ShellCheck
+        if: runner.os == 'Linux'
+        run: shellcheck --severity=warning claude/*/*.sh
