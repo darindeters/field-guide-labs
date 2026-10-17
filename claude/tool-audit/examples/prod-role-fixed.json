@@ -1,0 +1,6 @@
+{
+  "permissions": {
+    "allow": ["Read", "Grep", "mcp__github__get_issue", "Bash(npm test *)", "WebFetch"],
+    "deny": ["WebFetch"]
+  }
+}

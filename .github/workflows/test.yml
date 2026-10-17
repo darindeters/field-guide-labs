@@ -29,6 +29,8 @@ jobs:
         run: bash claude/review-blind-spots/test.sh
       - name: deny-rule-gap self-test
         run: bash claude/deny-rule-gap/test.sh
+      - name: tool-audit self-test
+        run: bash claude/tool-audit/test.sh
       - name: ShellCheck
         if: runner.os == 'Linux'
         run: shellcheck --severity=warning claude/*/*.sh
