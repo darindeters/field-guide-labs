@@ -5,6 +5,7 @@
 #
 # Usage: ./setup.sh [target-dir]   (default: ./billing-service)
 set -euo pipefail
+lab="$(cd "$(dirname "$0")" && pwd)"
 dir="${1:-billing-service}"
 if [ -e "$dir" ]; then echo "error: $dir already exists" >&2; exit 1; fi
 mkdir -p "$dir/billing" && cd "$dir"
@@ -37,6 +38,7 @@ from billing.invoice import invoice_total
 print("Invoice for two items, $12.50 + $8.00:")
 print(invoice_total(["12.50", "8.00"]))
 EOF
+cp -R "$lab/repo-files/." .
 git add -A && git commit -qm "billing: invoice totals"
 
 # The pull request: dollars -> integer cents. Only money.py changes.

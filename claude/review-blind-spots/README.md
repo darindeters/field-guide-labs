@@ -44,6 +44,32 @@ Recorded output from the same session. The first finding:
 
 > `billing/invoice.py:8` - `total` is now cents but `BULK_DISCOUNT_THRESHOLD` is still 1000 dollars, so the 10% discount fires at $10.01 instead of $1000.
 
+## Run 3: finder, then verifier
+
+The video's fix is to split finding from filtering. The demo repo ships both prompts in `review-prompts/`.
+
+```bash
+git diff --staged | claude -p "$(cat review-prompts/finder.md)" --tools "Read,Grep,Glob" > candidates.txt
+cat candidates.txt
+claude -p "$(cat review-prompts/verifier.md)" --tools "Read,Grep,Glob" < candidates.txt
+```
+
+Recorded output, Oct 17, 2026 (Claude Code 2.1.296). The finder listed six candidates, each with severity, file:line, reason and a confidence score:
+
+> 1. high | billing/invoice.py:7 | `invoice_total` still treats the sum as dollars, but `parse_amount` now returns cents ... | 95
+> 2. high | billing/invoice.py:8 | `BULK_DISCOUNT_THRESHOLD = 1000` is documented as dollars but is now compared against cents, so the 10% discount fires at $10.01 instead of $1000.01 | 95
+
+The verifier kept four and dropped two. One finding was older than the change. The other was the finder's own mistake:
+
+> DROP | invoice_demo.py:3 | symptom of #1; actual output 1845.0, claim says 2050
+
+## The other files from the video
+
+- `REVIEW.md` in the demo repo: what Important means, a nit cap, paths to skip, and an evidence rule. It follows the shape of the example in the [Code Review docs](https://code.claude.com/docs/en/code-review-customize). The managed Code Review service reads it. The local `/code-review` command and `claude -p` do not.
+- `review-prompts/contrast-pair.md`: a bad example and a good example for one bug class.
+- `review-prompts/security.md`, `correctness.md`, `performance.md`: one focused prompt per concern.
+- `examples/CLAUDE.md`: two project rules for this repo. It isn't copied into the demo repo, because Claude Code reads CLAUDE.md on every run and it would change the results of Runs 1 and 2. Copy it in to see how a project rule shifts the review.
+
 ## Notes
 
 - Model output varies from run to run. Your wording will differ. The pattern should hold: the gated, diff-only run hedges, and the run with Read/Grep/Glob cites the caller.
