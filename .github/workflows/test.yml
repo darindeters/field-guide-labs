@@ -31,6 +31,10 @@ jobs:
         run: bash claude/deny-rule-gap/test.sh
       - name: tool-audit self-test
         run: bash claude/tool-audit/test.sh
+      - name: retrieval-acl self-test
+        run: bash claude/retrieval-acl/test.sh
+      - name: audit-hook self-test
+        run: bash claude/audit-hook/test.sh
       - name: ShellCheck
         if: runner.os == 'Linux'
         run: shellcheck --severity=warning claude/*/*.sh

@@ -1,0 +1,9 @@
+{
+  "hooks": {
+    "PreToolUse": [{
+      "matcher": "*",
+      "hooks": [{ "type": "command", "command": "python3",
+                  "args": ["${CLAUDE_PROJECT_DIR}/log-tool-call.py"] }]
+    }]
+  }
+}
